@@ -1,0 +1,45 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="events.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<div ng-app="events" ng-controller="mainController">
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<td>         
+					<a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+						Name
+						<span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>  
+					<a href="#" ng-click="sortType = 'group'; sortReverse = !sortReverse">
+						Group
+						<span ng-show="sortType == 'group'" class="fa fa-caret-down"></span>
+					</a>          
+				</td>
+				<td> 
+					<a href="#" ng-click="sortType = 'date'; sortReverse = !sortReverse">
+						Date
+						<span ng-show="sortType == 'date'" class="fa fa-caret-down"></span>
+					</a>      
+				</td>
+				<td> 
+					<a href="#" ng-click="sortType = 'attendees'; sortReverse = !sortReverse">
+						Attendees
+						<span ng-show="sortType == 'attendees'" class="fa fa-caret-down"></span>
+					</a>      
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="event in results | orderBy:sortType:sortReverse">
+				<td>{{ event.name }}</td>
+				<td>{{ event.group}}</td>
+				<td>{{ event.date | date:'medium'}}</td>
+				<td>{{ event.attendees}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</html>
