@@ -2,9 +2,7 @@
 
 **eventTable tool**
 
-1. Installation
-
-*pip install webdriver*
+1. Installation: *pip install selenium*
 
 2. Usage
   1. *cd meetup_api_utils/eventsTable*
